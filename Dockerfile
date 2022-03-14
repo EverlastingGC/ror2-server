@@ -42,7 +42,7 @@ RUN set -x \
 		wine-stable \
 	&& mkdir -p ${STEAMAPPDIR} \
 	&& chown -R steam:steam ${STEAMAPPDIR} \
-	&& ${STEAMCMDDIR}/steamcmd.sh +login anonymous +force_install_dir /home/steam/steamworks_sdk \
+	&& ${STEAMCMDDIR}/steamcmd.sh +force_install_dir /home/steam/steamworks_sdk +login anonymous \
 		+@sSteamCmdForcePlatformType windows +app_update 1007 +quit \
 	&& cp /home/steam/steamworks_sdk/*64.dll ${STEAMAPPDIR}/ \
 	&& apt-get remove --purge -y \
